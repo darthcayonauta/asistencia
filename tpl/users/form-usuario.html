@@ -1,0 +1,137 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 contenido bloque">
+        <h2><i class="fas fa-arrow-alt-circle-right"></i> Formulario de Usuarios_ <strong>( ###tipo### )</strong> 
+            <a href="content-page.php?id=bGlzdGEtdXN1YXJpb3M=" class="btn btn-sm btn-secondary outline-line-gris"><i class="fas fa-angle-double-right"></i> Listar Usuarios</a>
+        </h2> 
+        <div class="raya-blanca"></div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-3">
+                Nombres
+            </div>
+            <div class="col-sm-8">
+                <input type="text" name="nombres" id="nombres" placeholder="Ingrese Nombres" class="form-control" value="###nombres###">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                Apellido Paterno
+            </div>
+            <div class="col-sm-7">
+                <input type="text" name="apaterno" id="apaterno" placeholder="Ingrese Apellido Paterno" class="form-control" value="###apaterno###">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                Apellido Materno
+            </div>
+            <div class="col-sm-7">
+                <input type="text" name="rut"     id="amaterno" placeholder="Ingrese Apellido Materno" class="form-control" value="###amaterno###">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                Rut
+            </div>
+            <div class="col-sm-7">
+                <input type="text" name="rut" id="rut" placeholder="Ingrese RUT sin puntos, ej 12345678-9" class="form-control" value="###rut###" ###disabled###>
+            </div>
+        </div>
+        
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                Clave / Password <strong>( 8 caracteres )</strong>
+            </div>
+            <div class="col-sm-7">
+                <input type="password" name="clave" id="clave" placeholder="Ingrese clave" class="form-control" ###disabled###>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-11">
+                ###hidden###
+                <button class="btn btn-block btn-secondary" id="###button-id###">
+                    <i class="fas fa-angle-double-right"></i> Ingresar Datos
+                </button>
+            </div>
+        </div>
+        <br>
+        <div id="notificacion"></div>
+
+
+    </div>
+</div>        
+
+<script>
+    $(document).ready( function(){
+        $('#send').on( 'click', ()=>{
+
+            let nombres  = $('#nombres').val();
+            let apaterno = $('#apaterno').val();
+            let amaterno = $('#amaterno').val();
+            let rut      = $('#rut').val();
+            let clave    = $('#clave').val();
+
+            //validare elemento x elemento
+
+            if( nombres=='')
+            { alert( 'Debe Ingresar un Nombre'); return false; }
+            else if( apaterno== '' )
+            { alert( 'Debe Ingresar el Apellido Paterno'); return false; }
+            else if( amaterno == '' )
+            { alert( 'Debe Ingresar el Apellido Materno'); return false; }
+            else if( rut== '')
+            { alert( 'Debe Ingresar el RUT'); return false; }
+            else if( clave == '')
+            { alert( 'Debe Ingresar la Clave'); return false; }
+            else if( !validaRut( rut ) ){
+              alert( 'RUT Inválido!!' )  ; return false;
+            }else if( !validaClave( clave ) )
+            { alert( 'La clave debe tener mínimo 8 caracteres!' ); return false }        
+            else{
+
+                let data = {'id'       :'ingresaNewUsuario',
+                            'nombres'  : nombres,
+                            'apaterno' : apaterno,
+                            'amaterno' : amaterno,
+                            'rut'      : rut,
+                            'clave'    : clave };
+
+               ajx( '#multiverso' , data ); 
+            }
+        });
+
+        $('#update').on( 'click', ()=>{
+
+            let nombres  = $('#nombres').val();
+            let apaterno = $('#apaterno').val();
+            let amaterno = $('#amaterno').val();
+            let id_user  = $('#id_user').val();
+                        
+            //validare elemento x elemento
+
+            if( nombres=='')
+            { alert( 'Debe Ingresar un Nombre'); return false; }
+            else if( apaterno== '' )
+            { alert( 'Debe Ingresar el Apellido Paterno'); return false; }
+            else if( amaterno == '' )
+            { alert( 'Debe Ingresar el Apellido Materno'); return false; }            
+            else {
+
+                let data = {'id'       :'actualizaUsuario',
+                            'nombres'  : nombres,
+                            'apaterno' : apaterno,
+                            'amaterno' : amaterno,                            
+                            'id_user'    : id_user };
+
+               ajx( '#notificacion' , data ); 
+            }
+        });
+    });
+</script>

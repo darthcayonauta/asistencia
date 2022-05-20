@@ -1,0 +1,39 @@
+<tr>
+  <td>
+    ###select-item### ###hidden###
+  </td>
+  <td>
+    <input type="text" id="detalle" name="detalle" class="detalle form-control" value="###detalle###">
+  </td>
+  <td>
+    ###select-documento###
+  </td>
+  <td>
+  <input  type="text"
+          id="num_documento"
+          name="num_documento"
+          class="num_documento form-control" value="###num_documento###">
+  </td>
+  <td>
+    <input type="date" id="fecha-detalle" name="fecha-detalle" class="fecha-detalle form-control" value="###fecha###">
+  </td>
+  <td>
+    <input type="text" id="monto-detalle" name="monto-detalle" class="monto-detalle form-control" value="###monto###">
+  </td>
+  <td>###button-eliminar###</td>
+</tr>
+<script>
+  $('#eliminar-detalle-rendicion-###id-detalle###').on('click', ()=>{
+
+    let id_detalle        = "###id-detalle###";
+    let codigo_rendicion  = '###codigo_rendicion###';
+
+    let data = {'id'              :'eliminarDetallerendicion', 
+                'id_detalle'      :id_detalle,
+                'codigo_rendicion':codigo_rendicion  };
+
+    if( confirm( 'Está seguro de eliminar este registro?' ) )
+      ajx( '#tabla-detalle-rendiciones',data );
+
+  });
+</script>

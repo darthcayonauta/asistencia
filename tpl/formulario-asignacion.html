@@ -1,0 +1,81 @@
+<div class="some">
+    <p class="h3">
+        <strong>
+        <i class="fas fa-stream"></i> Asignación de Rendiciones
+        </strong>
+       
+      </p>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+      <div class="raya">
+      </div>
+    </div>
+  </div>
+  <br>
+
+<div class="row some">
+    <div class="col-sm-6">
+        <label for="">
+            <strong>
+                Funcionario/Colaborador
+            </strong>
+        </label>
+        <br>
+        ###select###
+    </div>
+    <div class="col-sm-6">
+        <label for="">
+            <strong>
+                Monto
+            </strong>
+        </label>
+        <br>
+        <input type="text"
+               name="monto"
+               id="monto"
+               class="form-control"
+               placeholder="Ingrese Monto( sin puntos )"  
+        >
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <button class="btn btn-block btn-secondary"
+                id="send">
+                <i class="fas fa-angle-double-right"></i> Asignar Monto
+        </button>
+    </div>
+</div>
+
+<script>
+    $('#send').on('click',()=>{
+
+     let id_colaborador = $('#id_colaborador').val();
+     let monto          = $('#monto').val();   
+
+     if( id_colaborador =='' || monto=='' ) 
+     {
+         alert('Ambos campos son obligatorios');
+         return false;
+
+     }else{
+
+        if( !validaNumeroEntero(monto) )
+        {
+            alert('El monto debe ser un numero entero' );
+            return false;
+        }else{
+
+            let data = {'monto':monto,
+                        'id_colaborador':id_colaborador,
+                        'my-estado':6,
+                        'id':'asignaMontoColaborador'};
+
+            ajx('#multiverso',data);
+
+        }
+     }  
+    });
+</script>

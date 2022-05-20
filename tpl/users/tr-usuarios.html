@@ -1,0 +1,36 @@
+<tr>
+    <td>###num###</td>
+    <td><strong> ###usuario### </strong></td>
+    <td>###rut###</td>
+    <td>###estado###</td>
+    <td>
+ 
+        ###btn-edit###
+
+        <button class="btn btn-sm btn-danger" id="delete-###id###" ###disabled###>
+            <i class="fas fa-trash"></i> Delete
+        </button>
+    </td>
+</tr>
+<script>
+    $('#delete-###id###').on( 'click',(event)=>{
+        event.preventDefault();
+
+        let id_user = '###id###';
+        
+        if( confirm('esta seguro de eliminar este usuario?') )
+        {
+            let data = {'id':'eliminaUsuario','id_user': id_user}
+            ajx( '#multiverso',data );
+        }
+    });
+
+    $('#edit-###id###').on( 'click',(event)=>{
+        event.preventDefault();
+
+        let id_user = '###id###';
+        
+            let data = {'id':'editarUsuario','id_user': id_user}
+            ajx( '#multiverso',data );        
+    });
+</script>

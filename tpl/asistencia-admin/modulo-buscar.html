@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm-7">
+        <h2>
+            <i class="fas fa-arrow-alt-circle-right"></i> Consultar _
+            <strong>
+                Por Usuario
+            </strong>
+            <button class="btn btn-sm btn-secondary" id="abrir-cerrar">
+                <i class="fas fa-expand"></i> Abrir/Cerrar Resultado
+            </button>
+        </h2>
+    </div>
+</div>
+<div class="raya-blanca"></div>
+<br>
+<div class="row">
+    <div class="col-sm-4">
+        ###select-usuarios###
+    </div>
+    <div class="col-sm-4">
+        ###select-mes###
+    </div>
+    <div class="col-sm-4">
+        <button class="btn btn-block btn-secondary" id="buscar-funcionario">
+            <i class="fas fa-search"></i> Buscar
+        </button>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready( function(){
+
+        $('#abrir-cerrar').on('click',()=>{
+            $('#resultado-buscar').toggle(400);
+        });
+
+
+        $("#buscar-funcionario").on("click", ()=>{
+            //alert('soon');
+            let id_user     = $('#id_user').val();
+            let id_meses    = $('#id_meses').val();
+
+            if( id_user == '' || id_meses=='' )
+            { alert('debe seleccionar un usuario y un mes'); return false }
+            else{
+
+                let data = {'id':'findDataFuncionario', 
+                            'id_user':id_user,
+                            'id_meses':id_meses         };
+
+                ajx('#resultado-buscar', data);
+
+            }
+        } );
+    } );
+</script>

@@ -1,0 +1,509 @@
+<div class="some" align="lef">
+    <p class="h3">
+      <strong>
+      <i class="fas fa-stream"></i> Formulario de Rendiciones /
+      </strong> ###accion###
+      <a href="content-page.php?id=aW5pY2lv"
+        class="btn btn-sm btn-secondary"
+        name="a"
+        id="listar-rendiciones">
+              <i class="far fa-check-circle"></i> Ver Rendiciones
+      </a>
+    </p>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="raya-blanca">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-3">
+            <strong>RUT</strong>
+          </div>
+          <div class="col-sm-9">
+            <input type="text" name="rut" id="rut" value="###rut###" class="form-control" disabled>
+            <input type="hidden" name="yo"  id="yo" value="###yo###">
+            <input type="hidden" name="rut"  id="rut" value="###rut###">
+            <input type="hidden" name="token"  id="token" value="###token###">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-3">
+            <strong>Motivo</strong>
+          </div>
+          <div class="col-sm-9">
+            ###select-motivo###
+          </div>
+        </div>
+       <br>
+        <div class="row">
+          <div class="col-sm-3">
+            <strong>Fecha de Rendición</strong>
+          </div>
+          <div class="col-sm-9">
+            <input type="text"
+                   name="fecha_rendicion"
+                   id="fecha_rendicion"
+                   value="###fecha###" class="form-control" disabled>
+          </div>
+        </div>
+        <br>
+         <div class="row">
+           <div class="col-sm-3">
+             <strong>Monto Asignado</strong>
+           </div>
+           <div class="col-sm-9">
+             <input type="text"
+                    id="monto_asignado"
+                    placeholder="Ingrese Monto Asignado ($), sin puntos"
+                    class="form-control">
+           </div>
+         </div>
+      </div>
+      <div class="col-sm-6">
+        <div id="derecha">
+            ###hiddens###
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="h3">
+          <strong>
+              <i class="fas fa-stream"></i> Detalles de la Rendición /
+          </strong>
+          <button class="btn btn-sm btn-success" id="agregar-filas">
+            <i class="fas fa-angle-double-right"></i> Agregar Filas
+          </button>
+          <button class="btn btn-sm btn-danger" id="quitar-filas">
+            <i class="fas fa-angle-double-right"></i> Quitar Filas
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="raya-blanca">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+          <table class="table table-dark table-responsive table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Detalle</th>
+                <th>Tipo Documento</th>
+                <th>Número Documento</th>
+                <th>Fecha</th>
+                <th>Monto($)</th>
+              </tr>
+            </thead>
+            <tbody class="espacio-filas">
+                ###espacio-filas###
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="h3">
+          <strong>
+              <i class="fas fa-stream"></i> Resumen de la Rendición /
+          </strong>
+          Detalles
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="raya-blanca">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+          <strong>
+            Total a Rendir
+          </strong>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="total-a-rendir" id="total-a-rendir" value="" placeholder="total a rendir"  class="form-control">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+          <strong>
+            Monto Asignado
+          </strong>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="monto_asignado_inicial" id="monto_asignado_inicial" value="" placeholder="Monto Asignado"  class="form-control">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+          <strong>
+            Saldo Favor Empresa
+          </strong>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="saldo-favor-empresa" id="saldo-favor-empresa" value="" placeholder="Saldo Empresa"  class="form-control">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+          <strong>
+            Saldo Favor Funcionario
+          </strong>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" name="saldo-favor-funcionario" id="saldo-favor-funcionario" value="" placeholder="Saldo Funcionario"  class="form-control">
+      </div>
+    </div>
+    <br>
+    <form class="formulario" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+          <div class="col-sm-2">
+              <strong>
+                Documento ( PDF )
+              </strong>
+          </div>
+          <div class="col-sm-3">
+            <input type="file" name="archivo" id="archivo" class="form-control">
+          </div>
+          <div class="col-sm-3">
+            <input type="hidden" name="id" id="id" value="ingresa-files-rendicion">
+            <input type="hidden" name="codigo_rendicion" id="codigo_rendicion" value="###token###">
+            <button type="button" id="sube_files" class="btn btn-sm btn-primary" type="button">
+              <i class="fas fa-upload"></i> Subir Archivos
+            </button>
+          </div>
+        </div>
+        <br>
+        <div id="espacio-files"></div>
+    </form>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="multiverso2">
+
+            <input type="checkbox" name="terminos-y-condiciones" id="terminos-y-condiciones" value="1">
+              <strong>
+                Acepto Términos y Condiciones
+              </strong>
+
+            <button class="btn btn-sm btn-outline-light"
+                    data-toggle="modal"
+                    data-target="#terminos"
+            >
+              Ver Términos y Condiciones
+            </button>
+
+          ###modal###
+          <br>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="hidden" name="id" id="id" value="ingresarDataRendicionInicial">
+        <button class="btn btn-block btn-info" id="send" type="button">
+            <i class="fas fa-angle-double-right"></i>  Enviar Rendición
+        </button>
+      </div>
+    </div>
+    </div>
+
+
+<script type="text/javascript">
+
+$('#sube_files').on('click', function(event){
+    event.preventDefault();
+
+    var archivo = $('#archivo').val();
+    var formData    = new FormData( $(".formulario")[0] );
+
+    if( archivo == '' )
+    { alert("Debe seleccionar un archivo"); return false; }
+    else{
+
+      $.ajax({
+                type: "POST",
+                url: "response.php",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                beforeSend:VERImagen,
+
+                success: function( response ) {
+
+                $("#espacio-files").html(response);
+
+                },
+
+                error: function( response ) {
+
+                window.location.reload(true);
+            }
+        });
+    }
+});
+
+var counter = 0;
+
+$('#monto_asignado').on('change',function(){
+  let valor = parseInt( $(this).val() );
+
+  if( isNaN(valor) )
+  { alert( 'El monto dede ser un numero entero' );return false; }
+  else{
+    $('#monto_asignado_inicial').val(valor)
+  }
+});
+
+$('#agregar-filas').on('click',()=>{
+//let texto ="<br><div id='fila-'"+counter+">";
+let texto ="<tr class='fila' id='fila-"+(counter+1)+"'>";
+    texto +="<td><select id='id_item' class='form-control id_item' name='id_item'><option value=''>Seleccione Items</option><option value=''>---------------------</option><option value='1' >  Colación</option><option value='2' >  Locomoción</option><option value='3' >  Compras</option><option value='4' >  Otros</option></select></td>" ;
+    texto +="<td><input type='text' id='detalle' name='detalle' class='detalle form-control'></td>";
+    texto +="<td><select id='tipo_documento' class='form-control tipo_documento' name='tipo_documento'><option value=''>Seleccione Tipo.Doc.</option><option value=''>---------------------</option><option value='1' >  Boleta</option><option value='2' >  Factura</option><option value='3' >  Vale o Guía de Despacho</option></select></td>";
+    texto +="<td><input type='text' id='num_documento' name='num_documento' class='num_documento form-control'></td>";
+    texto +="<td><input type='date' id='fecha-detalle' name='fecha-detalle' class='fecha-detalle form-control'></td>";
+    texto +="<td><input type='text' id='monto-detalle' name='monto-detalle' class='monto-detalle form-control'></td>";
+    texto +="</tr>";
+    $( ".espacio-filas" ).append( texto  );
+    counter++;
+});
+
+
+setInterval( ()=>{
+  let cadenas = $('.monto-detalle').serialize();
+
+  let arrCadena = divideChain(cadenas,"&");
+  let j   = 0;
+  let aux = "";
+  let suma = 0
+
+  for (var i = 0; i < arrCadena.length; i++) {
+      aux = divideChain (arrCadena[i],"=");
+      suma = parseInt(suma) + parseInt( aux[ 1 ] );
+  }
+
+  $('#total-a-rendir').val(suma);
+} ,3000);
+
+
+$('#quitar-filas').on('click',()=>{
+
+  $('#fila-'+counter).remove();
+  counter--;
+
+  if( counter < 0 )
+    counter = 0;
+});
+
+
+$('#id_motivo').on('change', function(){
+  var id_motivo = $(this).val();
+  var yo        = $('#yo').val();
+  var token     = $('#token').val();
+
+  if( id_motivo == '' )
+  { alert('Elija un motivo'); return false; }
+  else{
+
+    var data = {'id':'form-viaje', 'id_motivo': id_motivo, 'yo':yo,'token':token};
+    ajx('#derecha',data);
+
+  }
+});
+
+function diff()
+{
+  return $('#monto_asignado_inicial').val() - $('#total-a-rendir').val() ;
+}
+
+setInterval( ()=>{
+
+ let diff = $('#monto_asignado_inicial').val() - $('#total-a-rendir').val() ;
+
+  if( diff > 0 )
+  {
+    favor_empresa  = diff;
+    favor_empleado = (-1)*diff;
+
+    $('#espacio-medio-pago').html('Funcionario paga')
+
+  }else if (diff < 0) {
+
+    favor_empresa  = diff;
+    favor_empleado = (-1)*diff;
+
+    $('#espacio-medio-pago').html('Empresa paga,')
+
+  }else{
+    favor_empresa  = 0;
+    favor_empleado = 0;
+
+    $('#espacio-medio-pago').html('Nadie paga')
+  }
+
+  $('#saldo-favor-empresa').val( favor_empresa );
+  $('#saldo-favor-funcionario').val( favor_empleado );
+
+} , 3000 );
+
+$('#send').on('click',function(event){
+
+  let id_motivo               = $('#id_motivo').val();
+  let monto_asignado          = $('#monto_asignado').val();
+  let lugar                   = $('#lugar').val();
+  let acompanante             = $('#acompanante').val();
+  let fecha_viaje             = $('#fecha-viaje').val();
+  let total_a_rendir          = $('#total-a-rendir').val();
+  let monto_asignado_inicial  = $('#monto_asignado_inicial').val();
+  let saldo_favor_empresa     = $('#saldo-favor-empresa').val();
+  let saldo_favor_funcionario = $('#saldo-favor-funcionario').val();
+  let monto_detalle           = $('.monto-detalle').serialize();
+  let id_item                 = $('.id_item').serialize();
+  let detalle                 = $('.detalle').serialize();
+  let fecha_detalle           = $('.fecha-detalle').serialize();
+  let tipo_documento          = $('.tipo_documento').serialize();
+  let num_documento           = $('.num_documento').serialize();
+  let yo                      = $('#yo').val();
+  let rut                     = $('#rut').val();
+  let token                   = $('#token').val();
+  let muestra_elimina_file    = "ok";
+
+
+  if( id_motivo =='' || monto_asignado=='' || lugar=='' ||  acompanante=='' ||
+      fecha_viaje == '' || total_a_rendir=='' || monto_asignado_inicial =='' ||
+      saldo_favor_empresa == '' || saldo_favor_funcionario == '' )
+  {
+    alert('Todos los campos son obligatorios');
+    return false;
+
+  }else
+  {
+  if( validaChainVacios( monto_detalle ) )
+  {
+    alert( 'NO DEBE DEJAR MONTOS VACIOS EN EL DETALLE' );
+    return false;
+
+   }else{
+
+      if (validaChainVacios( id_item )) {
+
+        alert( 'NO DEBE DEJAR Items VACIOS EN EL DETALLE' );
+        return false;
+
+      }else {
+
+            if ( validaChainVacios( detalle )) {
+
+              alert( 'NO DEBE DEJAR Detalles VACIOS EN LA TABLA' );
+              return false;
+
+            }else {
+
+              if (validaChainVacios( tipo_documento )) {
+
+                alert( 'NO DEBE DEJAR Tipos de Documentos VACIOS EN EL DETALLE' );
+                return false;
+
+              }else {
+
+                    if (validaChainVacios( fecha_detalle )) {
+
+                      alert( 'NO DEBE DEJAR Fechas VACIAS EN EL DETALLE' );
+                      return false;
+                      
+                    }else {
+
+                          let data = { 'id_motivo'                : id_motivo,
+                                       'monto_asignado'           : monto_asignado,
+                                       'lugar'                    : lugar,
+                                       'acompanante'              : acompanante,
+                                       'fecha_viaje'              : fecha_viaje,
+                                       'total_a_rendir'           : total_a_rendir,
+                                       'monto_asignado_inicial'   : monto_asignado_inicial,
+                                       'saldo_favor_empresa'      : saldo_favor_empresa,
+                                       'saldo_favor_funcionario'  : saldo_favor_funcionario,
+                                       'monto_detalle'            : monto_detalle,
+                                       'id_item'                  : id_item,
+                                       'detalle'                  : detalle,
+                                       'fecha_detalle'            : fecha_detalle,
+                                       'tipo_documento'           : tipo_documento,
+                                       'num_documento'            : num_documento,
+                                       'yo'                       : yo,
+                                       'rut'                      : rut,
+                                       'token'                    : token,
+                                       'muestra_elimina_file'     : muestra_elimina_file,
+                                       'id'                       :'ingresaDataInicialRencion'      };
+
+                                  if( confirm( "Está seguro de ingresar esta información ?" ) )
+                                    if( $('#terminos-y-condiciones').is(':checked') )
+                                        ajx('#multiverso', data);
+                                    else
+                                    {
+                                      alert( 'Debe Seleccionar los Términos y Condiciones' );
+                                      return false;
+
+                                    }
+                              }
+                          }
+                      }
+                }
+          }
+    }
+});
+
+function VERImagen(){
+
+    var x=$("#espacio-files");
+     x.html('<center><div class="container"><div class="row"><div class="col-md-12"><img src="gfx/cargando.gif" class="img-fluid"></div></div></div><center>');
+
+    }
+
+ function validaChainVacios( cadena )
+    {
+            var arrCadena = divideChain2(cadena,"&");
+
+            var j   = 0;
+            var aux = "";
+
+            for (var i = 0; i < arrCadena.length; i++) {
+                    aux = divideChain2(arrCadena[i],"=");
+
+                    if(aux[1] == '' )
+                            j++;
+            };
+
+            if( j > 0)
+                    return true;
+            else
+                    return false;
+    }
+
+
+function divideChain2( chain,simbolo )
+{
+        var div = chain.split( simbolo );
+        return div;
+}
+</script>

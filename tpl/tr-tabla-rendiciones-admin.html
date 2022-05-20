@@ -1,0 +1,53 @@
+<tr>
+  <td>###codigo###</td>
+  <td>###fecha###</td>
+  <td>###responsable###</td>
+  <td>###viaje###</td>
+  <td>###monto-asignado###</td>
+  <td>###estado###</td>
+  <td>
+    ###btn_editar###
+
+    ###btn-evalua###
+
+    <button class="btn btn-sm btn-light" name="button"
+            data-toggle = "modal"
+            data-target = "#archivos-###id###" >
+        <i class="far fa-file-pdf"></i>
+    </button>
+      <div class="modales">
+        ###modal###
+      </div>
+  </td>
+</tr>
+
+<script>
+  $('#editar-###id###').on( 'click', ( e )=>{
+
+    let codigo = '###codigo###';
+    let data = {'id':'editarRendicion', 'codigo':codigo};
+
+    if( confirm( 'Esta seguro de editar estos datos?' ) )
+        ajx( '#multiverso', data );
+
+  });
+
+
+  $('#ver-detalle-###id###').on('click',( e )=>{
+    let codigo = '###codigo###';
+
+    let data = {'id':'verDetalleRendicion', 'codigo':codigo};
+    ajx( '#multiverso', data );
+
+  });
+
+  $('#revisar-###id###').on('click',( e )=>{
+    let codigo = '###codigo###';
+
+    let data = {'id':'revisarRendicion', 'codigo':codigo};
+    ajx( '#multiverso', data );
+
+  });
+
+
+</script>

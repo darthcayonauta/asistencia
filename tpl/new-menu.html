@@ -1,0 +1,180 @@
+    <style type="text/css">
+        
+        #new-menu{
+          
+          width: 100%;
+          padding-left: 0px;
+          left: 0%;
+        }
+
+        #menu-content{
+          display: block;
+          background: #FF6600;
+          margin-left: auto;
+          margin-right: : auto;
+          padding-top: 0;  
+
+        }
+
+         #menu-content2{
+          display: block;
+          background: #FF6600;
+          margin-left: auto;
+          margin-right: : auto;
+          padding-top: 0;  
+
+        }
+
+        #fondo-imagen{
+          background: #FFFFFF;
+        }
+
+        #contenido{
+          position: relative;
+          display: inline-block;
+          text-align: center;
+        }
+
+        #fondo-imagen{
+            background: #FFFFFF;
+
+        }
+
+        #espacio-menu{
+
+
+          position: absolute;
+          display: inline-block;
+          text-align: center;
+          top: 82px;
+          left: 0px;
+        }
+
+        #espacio-menu2{
+        position: absolute;
+        top: 82px;
+        left: 0px;
+        }
+
+        .menu-links{
+          padding-left: 7px;
+          padding-right: 5px;
+          padding-top: 2px;
+          padding-bottom: 5px;
+        }
+
+        .f-nav{  /* To fix main menu container */
+            z-index: 9999;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+
+
+    </style>
+    <!--
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: #f77700;width: auto;" >
+    -->
+<center>
+
+<div class="menu-content" id="menu-content">
+    <div id="titulo-imagen">   
+       <a class="navbar-brand" href="#">
+        <img src="img/ebenty-log.png" class="img-fluid float-center" width="70%">
+      </a>
+     </div> 
+        
+        <div id="contenido">  
+            <div id="fondo-imagen"> 
+              <img src="img/icons/base_menu.png" class="img-fluid">
+             </div> 
+        
+        </div>
+        <div id="espacio-menu" class="espacio-menu">    
+             <table  id="new-menu">
+               <tr>
+                 <td>
+                    <div class="menu-links">
+                      <a href="#" id="muestra-inicio">
+                          <img src='img/icons/boton.home.png' class="img-fluid">
+                      </a>
+                     </div> 
+                </td>
+                <!--
+                 <td>
+                    <div class="menu-links">
+                      <a href="#" id="configura-ajx">
+                        <img src='img/icons/boton-configuracion.png' class="img-fluid">
+                      </a>
+                    </div> 
+                </td>
+                -->
+                <td>
+                    <div class="menu-links">
+                      <a href="#" id="configurationes-ajx" data-toggle="modal" data-target="#configuration">
+                        <img src='img/icons/boton-configuracion.png' class="img-fluid">
+                      </a>
+                    </div> 
+                </td>
+                 <td>
+                    <div class="menu-links">
+                      <a href="#" href="#" id="ir-favoritos">
+                          <img src='img/icons/boton-favorito.png' class="img-fluid">
+                      </a>
+                    </div> 
+                </td>
+
+                 <td>
+                    <div class="menu-links">
+                        <a href="#" id="publica-ajx">
+                          <img src='img/icons/boton-publicar.png' class="img-fluid">
+                        </a>
+                    </div>
+                 </td>
+                 
+                  <td>
+                    <div class="menu-links">                    
+                        <a href="#"  href="#" data-toggle="modal" data-target="#lista-usuarios-activos" id="modal-amigos">
+                          <img src='img/icons/boton_amigos.png' class="img-fluid">
+                        </a>
+                     </div>   
+                  </td>
+                 <td>
+                    <div class="menu-links">
+                        <a href="#" id="mis-lugares"  data-toggle="modal" data-target="#ciudades">
+                          <img src='img/icons/boton-lugares.png' class="img-fluid">
+                        </a>
+                     </div>   
+                </td>
+                 
+               </tr>
+             </table>
+      </div>
+  </div>   
+</center>
+    
+<script type="text/javascript">
+
+$("document").ready(function($){
+
+    var nav = $('#menu-content');
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 150) {
+            nav.addClass("f-nav");
+            $('#titulo-imagen').hide(400)
+            $('.espacio-menu').show(400)
+             $('.espacio-menu').css({'top':'15px'})
+        
+        } else {
+            nav.removeClass("f-nav");
+               $('#titulo-imagen').show(400)
+               $('.espacio-menu').show(400)
+                $('.espacio-menu').css({'top':'82px'})
+        }
+    });
+});
+
+</script>
+  <br>

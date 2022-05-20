@@ -1,0 +1,79 @@
+<style>
+        #limit{
+            height: 3px;
+            background: #757575;
+        }
+</style>
+<div id="espacio-form" style="text-align: left">
+    <div class="row">
+            <div class="col-sm-12">
+                <p class="h4">
+                    <i class="fas fa-stream"></i> <strong>  Formulario de Cambio de Clave </strong>
+                </p>
+            </div>
+        </div>
+        <div id="limit"></div>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+         <strong>
+           Nota:
+         </strong>
+         Ambos campos son obligatorios
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+                <input  type        =   "password"
+                        name        =   "clave1"
+                        id          =   "clave1"
+                        class       =   "form-control"
+                        placeholder =   "Ingrese Clave Nueva ( Mínimo 8 caracteres )" >
+        </div>
+    </div> <br>
+    <div class="row">
+            <div class="col-sm-6">
+                    <input  type        =   "password"
+                            name        =   "clave2"
+                            id          =   "clave2"
+                            class       =   "form-control"
+                            placeholder =   "Repita Clave Nueva ( Mínimo 8 caracteres )" >
+            </div>
+    </div> <br>
+    <div class="row">
+        <div class="col-sm-6">
+                <button class="btn btn-block btn-primary" id="send" type="button">
+                <i class="fas fa-angle-double-right"></i> Guardar Cambios
+        </button>
+        </div>
+    </div> <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="notificacion"></div>
+      </div>
+    </div>
+</div>
+<script>
+    $('#send').on( 'click' , ()=>{
+
+        let clave1 = $('#clave1').val();
+        let clave2 = $('#clave2').val();
+
+        if( clave1 == '' || clave2 == '' )
+        {
+            alert( 'No dejar campos vacios' ); return false;
+        }else{
+              if(  clave1 != clave2  )
+              { alert( 'Los campos no coinciden' ); return false; }
+              else{
+                  if( !validaClave( clave2  ) )
+                  { alert( 'Las claves deben ser de al menos 8 caracteres' ); return false; }
+                  else{
+
+                        let data = { 'id':'cambiaClaveData', 'clave':clave2 };
+                        ajx( '#notificacion' , data );
+                  }
+               }
+        }
+    } );
+</script>

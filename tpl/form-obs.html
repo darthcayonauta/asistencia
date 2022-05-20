@@ -1,0 +1,97 @@
+<form class="formulario"  method="post" enctype="application/x-www-form-urlencoded">
+    <p class="h3">
+      <strong>
+      <i class="fas fa-stream"></i> Observaciones /
+      </strong> de Rendición
+    </p>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="raya">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>
+          Responsable
+        </strong>
+      </div>
+      <div class="col-sm-9">
+        ###responsable###
+        <input type="hidden"
+                id="responsable"
+                name="responsable"
+                value="###responsable###">
+
+        <input type="hidden"
+                id="email"
+                name="email"
+                value="###email###">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>
+          Código Rendición
+        </strong>
+      </div>
+      <div class="col-sm-9">
+        ###codigo###
+        <input type="hidden"
+                id="codigo"
+                name="codigo"
+                value="###codigo###">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>
+          Estado
+        </strong>
+      </div>
+      <div class="col-sm-4">
+        ###select-estado###
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>
+          Observación
+        </strong>
+      </div>
+      <div class="col-sm-9">
+          <textarea name="observacion"
+                    id="observacion"
+                    class="form-control"
+                    rows="8" cols="80"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+          <strong>
+            Archivo PDF ( Opcional )
+          </strong>
+        </div>
+        <div class="col-sm-9">
+          <input type="file" name="archivo" id="archivo" >
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="hidden" name="id" id="id" value="ingresa-observacion">
+        <button  id="send"
+                 name="send"
+                 class="btn btn-dark btn-block"
+                 type="button">
+                 <i class="fas fa-angle-double-right"></i> Guardar
+        </button>
+      </div>
+    </div>
+</form>

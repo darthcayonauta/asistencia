@@ -1,0 +1,58 @@
+<div class="some multiverso2" >
+    <p class="h3">
+      <strong>
+      <i class="fas fa-stream"></i> Lista de Rendiciones
+      </strong>
+      <a href="content-page.php?id=Y3JlYXJSZW5kaWNpb25lcw=="
+        class="btn btn-sm btn-secondary"
+        name="a"
+        id="crear-rendicion">
+              <i class="far fa-check-circle"></i> Crear Rendición
+      </a>
+    </p>
+    Hay un total de <strong>###total-recs###</strong> registros en el sistema
+    <table class="table table-responsive table-hover table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Fecha de Ingreso</th>
+          <th>Responsable</th>
+          <th>Motivo</th>
+          <th>Monto Asignado ($)</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+    <tbody>
+      ###tr###
+    </tbody>
+    </table>
+      <div class="row">
+          <div class="col-sm-12">
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    ###nav-links###
+                  </ul>
+              </nav>
+          </div>
+        </div>
+</div>
+
+
+
+
+<script>
+
+  $('.pagination').click( function(){
+
+    var valores = $(this).attr('data');
+    var page     = valores.split("=");
+
+    var data = {
+        'accion':'send',
+        'id':'listarRendiciones',
+        'page':page[1] };
+
+    ajx('#multiverso',data);
+})
+</script>

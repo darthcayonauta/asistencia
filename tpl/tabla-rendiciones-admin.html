@@ -1,0 +1,97 @@
+<div class="some multiverso2" >
+    <p class="h3">
+      <strong>
+      <i class="fas fa-stream"></i> Lista de Rendiciones
+      </strong>
+      <a href="content-page.php?id=Y3JlYXJSZW5kaWNpb25lcw=="
+        class="btn btn-sm btn-secondary"
+        name="a"
+        id="crear-rendicion">
+              <i class="far fa-check-circle"></i> Crear Rendición
+      </a>
+      <button class="btn btn-sm btn-outline-secondary" id="abrir-cerrar-busqueda">
+              <i class="far fa-check-circle"></i>  Abrir/Cerrar Módulo de Búsqueda
+      </button>
+    </p>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="raya">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id="espacio-buscar">
+      ###buscar###
+    </div>
+    <br>
+
+    Hay un total de <strong>###total-recs###</strong> registros en el sistema
+    <table class="table table-responsive table-hover table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Fecha de Ingreso</th>
+          <th>Responsable</th>
+          <th>Motivo</th>
+          <th>Monto Asignado ($)</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+    <tbody>
+      ###tr###
+    </tbody>
+    </table>
+      <div class="row">
+          <div class="col-sm-12">
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    ###nav-links###
+                  </ul>
+              </nav>
+          </div>
+        </div>
+</div>
+<script>
+
+  $('#buscar').on('click',()=>{
+
+    let codigo        = $('#codigo').val();
+    let fecha_inicial = $('#fecha-inicial').val();
+    let fecha_final   = $('#fecha-final').val();
+    let id_usuario    = $('#id_usuario').val();
+    let id_estado     = $('#id_estado').val();
+
+    let data = { 'codigo'         : codigo,
+                 'fecha_inicial'  : fecha_inicial,
+                 'fecha_final'    : fecha_final,
+                 'id_usuario'     : id_usuario,
+                 'id_estado'      : id_estado,
+                 'modoBuscar'     : 1,
+                 'id'             :'buscarRendiciones',
+                };
+
+  ajx( '#multiverso',data );
+
+  });
+
+  $('#abrir-cerrar-busqueda').on('click', ()=>{
+    $('#espacio-buscar').toggle(500);
+  });
+
+  $('#espacio-buscar').hide();
+
+
+  $('.pagination').click( function(){
+
+    var valores = $(this).attr('data');
+    var page     = valores.split("=");
+
+    var data = {
+        'accion':'send',
+        'id':'listarRendiciones',
+        'page':page[1] };
+
+    ajx('#multiverso',data);
+})
+</script>

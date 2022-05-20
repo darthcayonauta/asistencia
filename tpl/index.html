@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover">
+		<meta name="mobile-web-app-capable" content="yes" >
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="description" content="by SOCMA">
+    <meta name="author" content="CGH">
+    <meta charset="utf-8">
+	<title>
+		@@@TITLE
+	</title>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="js/valida-index.js"></script>
+
+
+	<script src="js/jquery-1.8.3.min.js"></script>
+	
+
+	<link rel="stylesheet" href="css/my-style.css">
+	<link rel="manifest" href="./manifest.json">
+
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+	<style media="screen">
+		.fondo2{
+			background: #2d3830;
+			color: #EFEFEF;
+			font-family: 'Dosis',sans-serif;
+		}
+
+		.fondo{
+			background: #000046;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			background: linear-gradient(to right, #565656 0%, #181818 100%);
+			color: #EFEFEF;
+			font-family: 'Dosis',sans-serif;
+		}
+	</style>
+
+	<script>
+		if("serviceWorker" in navigator)
+		{
+			navigator.serviceWorker.register("sw.js");
+		}
+	</script>
+
+</head>
+<body class="fondo">
+	<div class="container">
+	<br>
+	<br>
+	<div id="entrada">
+			<form action="inicio.php" method="POST" onsubmit=" valida();" autocomplete="off">
+				<div class="row">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-">
+						<p class="h3">
+							Acceso al
+							<strong>
+								  Sistema de Asistencia
+							</strong>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					  <div class="col-sm-2"></div>
+						<div class="col-sm-7">
+							<div class="row">
+
+								<div class="col-sm-11">
+									<input type="text" name="email" id="email" placeholder="ingresa tu RUT, sin puntos, ej: 12345678-9" class="form-control">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-sm-11">
+										<input type="password" name="clave" id="clave" class="form-control" placeholder="Ingresa tu Clave">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-sm-11">
+									<button class="btn btn-info btn-block" type="submit">
+											<i class="fas fa-angle-double-right"></i>	Ingresar
+									</button>
+								</div>
+							</div>
+						</div>
+				</div>
+			<br>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-9">
+					###notificacion###
+				</div>
+			</div>
+			<br>
+		</form>
+	</div>
+</div>
+
+<script src="js/sw.js"></script>
+
+</body>
+</html>
+
+<script>
+
+	function valida() {
+
+		let email = $('#email').val();
+		let clave = $('#clave').val();
+
+		if( email == '' || clave == '' )
+		{ alert( 'Ambos campos son obligatorios' ); return false; }
+		else return true;
+
+	}
+</script>

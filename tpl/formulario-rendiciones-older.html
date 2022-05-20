@@ -1,0 +1,167 @@
+<div class="some" align="lef">
+<p class="h3">
+  <strong>
+  <i class="fas fa-stream"></i> Formulario de Rendiciones /
+  </strong> ###accion###
+  <a href="content-page.php?id=aW5pY2lv"
+    class="btn btn-sm btn-secondary"
+    name="a"
+    id="listar-rendiciones">
+          <i class="far fa-check-circle"></i> Listar Rendiciones
+  </a>
+</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="raya-blanca">
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>RUT</strong>
+      </div>
+      <div class="col-sm-9">
+        <input type="text" name="rut" id="rut" value="###rut###" class="form-control" disabled>
+        <input type="hidden" id="yo" value="###yo###">
+        <input type="hidden" id="token" value="###token###">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>Motivo</strong>
+      </div>
+      <div class="col-sm-9">
+        ###select-motivo###
+      </div>
+    </div>
+   <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <strong>Fecha de Rendición</strong>
+      </div>
+      <div class="col-sm-9">
+        <input type="text"
+               name="fecha_rendicion"
+               id="fecha_rendicion"
+               value="###fecha###" class="form-control" disabled>
+      </div>
+    </div>
+    <br>
+     <div class="row">
+       <div class="col-sm-3">
+         <strong>Monto Asignado</strong>
+       </div>
+       <div class="col-sm-9">
+         <input type="text"
+                id="monto_asignado"
+                placeholder="Ingrese Monto Asignado ($), sin puntos"
+                class="form-control">
+       </div>
+     </div>
+  </div>
+  <div class="col-sm-6">
+    <div id="derecha">
+        ###hiddens###
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <p class="h3">
+      <strong>
+          <i class="fas fa-stream"></i> Detalles de la Rendición /
+      </strong>
+      <button class="btn btn-sm btn-success" id="agregar-filas">
+        <i class="fas fa-angle-double-right"></i> Agregar Filas
+      </button>
+      <button class="btn btn-sm btn-danger" id="quitar-filas">
+        <i class="fas fa-angle-double-right"></i> Quitar Filas
+      </button>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="raya-blanca">
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="negro">
+      Item
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="negro">
+      Detalle
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="negro">
+      Tipo De Documento
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="negro">
+      Fecha
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="negro">
+      Monto ($)
+    </div>
+  </div>
+</div>
+<br>
+  <div class="espacio-filas">
+    ###espacio-filas###
+  </div>
+</div>
+<script type="text/javascript">
+
+var counter = 0;
+
+$('#agregar-filas').on('click',()=>{
+//let texto ="<br><div id='fila-'"+counter+">";
+let texto ="<div class='fila' id='fila-"+(counter+1)+"'><br>";
+    texto +="<div class='row'><div class='col-sm-2'><select id='id_item' class='form-control' name='id_item' class='input'><option value=''>Seleccione Items</option><option value=''>---------------------</option><option value='1' >  Colación</option><option value='2' >  Locomoción</option><option value='3' >  Compras</option><option value='4' >  Otros</option></select></div>" ;
+    texto +="<div class='col-sm-2'><input type='text' id='detalle' name='detalle' class='detalle form-control'></div>";
+    texto +="<div class='col-sm-2'><select id='tipo_documento' class='form-control' name='tipo_documento' class='input'><option value=''>Seleccione Tipo.Doc.></option><option value=''>---------------------</option><option value='1' >  Boleta</option><option value='2' >  Factura</option><option value='3' >  Vale o Guía de Despacho</option></select></div>";
+    texto +="<div class='col-sm-2'><input type='date' id='fecha-detalle' name='fecha-detalle' class='fecha-detalle form-control'></div>";
+    texto +="<div class='col-sm-2'><input type='text' id='monto-detalle' name='monto-detalle' class='monto-detalle form-control'></div>";
+    texto +="</div>";
+    $( ".espacio-filas" ).append( texto  );
+    counter++;
+});
+
+$('#quitar-filas').on('click',()=>{
+
+  $('#fila-'+counter).remove();
+  counter--;
+
+  if( counter < 0 )
+    counter = 0;
+});
+
+$('#id_motivo').on('change', function(){
+  var id_motivo = $(this).val();
+  var yo        = $('#yo').val();
+  var token     = $('#token').val();
+
+  if( id_motivo == '' )
+  { alert('Elija un motivo'); return false; }
+  else{
+
+    var data = {'id':'form-viaje', 'id_motivo': id_motivo, 'yo':yo,'token':token};
+    ajx('#derecha',data);
+
+  }
+});
+</script>

@@ -1,0 +1,82 @@
+<tr>
+    <td>
+        <div class="cuadrito">
+            <strong>
+                <i class="fas fa-calendar"></i> ###dia###
+            </strong>
+        </div>  
+    </td>
+    <td>   
+        ###hora-inicio###                               
+    </td>
+    <td>   
+        ###hora-salida###                        
+    </td>
+    <td>
+        ###button###
+    </td>
+</tr>
+
+<script>
+    $(document).ready( function(){
+        $('#send-data-###identificador###').on( 'click' , (event)=>{
+
+            let hora_entrada    = $('#id_hora_entrada-###fecha###').val();
+            let minutos_entrada = $('#id_minutos_entrada-###fecha###').val();
+            let id_user         = '###id_user###';
+            let fecha           = '###fecha###';
+            let mes             = '###mes###'; 
+            let year            = '###year###';    
+
+            if(hora_entrada=='' || minutos_entrada=='')
+            {
+                alert("Debe seleccionar Hora y Minutos de Entrada");
+                return false;
+            }else{
+                let data = {'id':'ingresaDataIngreso' ,
+                            'hora_entrada':hora_entrada,
+                            'minutos_entrada':minutos_entrada,
+                            'id_user':id_user,
+                            'fecha':fecha,
+                            'mes':mes,
+                            'year':year,
+                };
+               if( confirm(  'Información Correcta?')  )
+                    ajx('#multiverso', data) ;
+
+            }
+        } );
+
+
+      $('#update-data-###identificador###').on('click',(event)=>{
+            
+            let hora_salida    = $('#id_hora_salida-###fecha###').val();
+            let minutos_salida = $('#id_minutos_salida-###fecha###').val();
+            let id_user         = '###id_user###';
+            let fecha           = '###fecha###';
+            let mes             = '###mes###'; 
+            let year            = '###year###'; 
+
+            if(hora_salida=='' || minutos_salida=='')
+            {
+                alert("Debe seleccionar Hora y Minutos de Entrada");
+                return false;
+            }else{
+                let data = {'id':'updateDataIngreso' ,
+                            'hora_salida':hora_salida,
+                            'minutos_salida':minutos_salida,
+                            'id_user':id_user,
+                            'fecha':fecha,
+                            'mes':mes,
+                            'year':year,
+                };
+               if( confirm(  'Información Correcta?')  )
+                    ajx('#multiverso', data) ;
+
+            }
+
+      }); 
+
+
+    } );
+</script>

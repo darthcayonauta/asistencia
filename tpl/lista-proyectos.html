@@ -1,0 +1,104 @@
+<div class="bloque">
+
+<p class="h4">
+  <strong>
+    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+        Lista de Proyectos
+    </strong>
+    <a class="btn btn-sm btn-secondary"  href="content-page.php?id=Y3JlYXItcHJveWVjdG8=">
+        [Crear Proyecto]
+    </a>
+    <a class="btn btn-sm btn-secondary"  href="#" id="buscar">
+        [Buscar]
+    </a>
+
+</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="raya"></div>
+  </div>
+</div>
+<br>
+<div class="row">
+    <div id="espacio-busqueda" class="col-sm-12">
+        ###buscar###
+    </div>
+</div>
+
+<br>
+  <p>
+    Total Proyectos : <strong>###total-recs###</strong>
+  </p>
+
+  <table class="table  table-hover table-responsive table-striped">
+  <thead class="thead-light">
+    <tr>
+        <th>#</th>
+        <th>Codigo</th>
+        <th>Proyecto</th>
+        <th>Tipo</th>
+        <th>Estado</th>
+        <th>Responsable</th>
+        <th>F.Inicio</th>
+        <th>F.Entrega</th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    ###tr###
+  </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        ###nav-links###
+      </ul>
+  </nav>
+</div>
+
+<script type="text/javascript">
+
+  $("#search").on("click",()=>{
+
+    let  codigo           = $('#codigo').val();
+    let  titulo           = $('#titulo').val();
+    let  id_estado_etapa  = $('#id_estado_etapa').val();
+    let  fecha_inicio     = $('#fecha_inicio').val();
+    let  fecha_entrega    = $('#fecha_entrega').val();
+    let  buscar_action    = $('#buscar-action').val();
+
+    let data              = {'id'               :'findProyectos',
+                             'buscar_action'    : buscar_action,
+                             'codigo'           : codigo,
+                             'titulo'           : titulo,
+                             'id_estado_etapa'  : id_estado_etapa,
+                             'fecha_inicio'     : fecha_inicio,
+                             'fecha_entrega'    : fecha_entrega     };
+
+    ajx("#multiverso",data);
+                             
+  });
+
+
+  $("#espacio-busqueda").hide();
+
+  $("#buscar").on("click", ()=>{
+    $("#espacio-busqueda").toggle(300);
+  });
+
+
+  $('.pagination').click( function(event ){
+
+    event.preventDefault();
+
+    var valores = $(this).attr('data');
+    var page     = valores.split("=");
+
+    var data = {
+        'accion':'send',
+        'id':'lista-proyectos',
+        'page':page[1] };
+
+    ajx('#multiverso',data);
+
+});
+</script>

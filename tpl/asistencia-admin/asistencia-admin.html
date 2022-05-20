@@ -1,0 +1,51 @@
+<div class="row">
+    
+    <div class="col-sm-12 contenido bloque">
+        
+        <div id="espacio-listado">
+        <h2><i class="fas fa-arrow-alt-circle-right"></i> Fecha _ 
+            <strong>
+                ###fecha-actual### 
+            </strong>       
+            ###fecha-hoy###
+        </h2>                      
+         <div class="raya-blanca"></div>
+         <br>                          
+            ###listado###
+        </div> 
+        <div class="row">
+            <div class="col-sm-1">
+                <label for="">Consultar Fecha</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="date"
+                        id="reg_fecha"
+                        name="reg_fecha"
+                        class="form-control">
+            </div>
+        </div>
+        <hr>
+        <br>
+        
+        ###buscar###
+        
+        <br>
+        <div id="resultado-buscar"></div>
+    </div>    
+</div>
+
+<script>
+    $("#reg_fecha").on( "change", function(){
+        var reg_fecha = $(this).val();
+
+        if( reg_fecha == '' )
+        {
+            alert("ingrese una fecha");
+            return false;
+        }else{
+
+            var data = {'id':'consultarPorFecha', 'reg_fecha':reg_fecha};
+            ajx('#espacio-listado',data);
+        }
+    })
+</script>

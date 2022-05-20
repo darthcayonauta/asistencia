@@ -1,0 +1,18 @@
+{
+    "name":"Sistema de Asistencia SOCMA",
+    "short_name":"Asistencia",
+    "theme-color":"#000046",
+    "background-color":"#000046",
+    "display":"standalone",
+    "orientation":"portrait",
+    "scope":"./",
+    "start_url":"https://socma.cl/asistencia/",
+    "icons":[
+        {
+            "src":"./favicon.png",
+            "type":"image/png",
+            "sizes":"1000x1000"
+        }
+    ]
+
+}

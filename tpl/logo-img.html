@@ -1,0 +1,55 @@
+<div id="espacio-mi-imagen">
+	<img src="gfx/@@@img-name" class="img-thumbnail rounded">
+	<input type="hidden" name="logo" id="logo" value="@@@img-name">
+	<br>
+	<a href="#" id="elimina-imagen-corporativa" class="btn btn-danger btn-sm" tabindex="-1" role="button" aria-disabled="true"><i class="fas fa-trash"></i> Eliminar Imagen</a>
+	<br>
+	<br>
+</div>	
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		
+		$('#elimina-imagen-corporativa').click(function(event) {
+			
+			event.preventDefault()
+			//alert('todo-ok')
+
+			confirma = confirm('Esta seguro?')
+
+			if( confirma )
+			{
+				var id_publicador = @@@id_publicador
+				var data 		  = {'id':'elimina-imagen-corporativa','id_publicador':id_publicador}
+
+				$.ajax({
+		                type: "POST",
+		                url: "response.php",
+		                data: data,
+		            
+		                success: function( response ) {
+		                  console.log(response);
+
+		                $("#espacio-mi-imagen").html(response);
+		                 
+		                },
+		              
+		                error: function( response ) {
+		                console.log(response);
+		                window.location.reload(true);
+		              }
+            });	
+
+
+			}else{
+				//alert('NO vas a eliminar')
+				return false
+			}	
+
+
+		});
+
+
+	});
+</script>

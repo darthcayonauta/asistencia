@@ -1,0 +1,35 @@
+<tr>
+    <td>###num###</td>
+    <td><a href="dox/###archivo###"
+          data-toggle ="tooltip"
+          title="Descargar este archivo"
+          class="btn btn-sm btn-outline-light" download="###archivo###">
+          ###archivo###
+        </a>
+     </td>
+    <td>###fecha_subida###</td>
+    <td>
+        ###btn###
+    </td>
+</tr>
+
+<script type="text/javascript">
+  $("#quita-archivo-###id###").on('click',(event)=>{
+
+    event.preventDefault();
+
+    let id_archivo = "###id###";
+    let codigo_rendicion = "###codigo_rendicion###";
+
+    if( confirm( "Esta Seguro de Eliminar este archivo" ) )
+    {
+      let data = {'id':'eliminaArchivoRendicion',
+                  'id_archivo':id_archivo,
+                  'codigo_rendicion':codigo_rendicion };
+
+      console.log( data );
+
+      ajx( "#espacio-files", data );
+    }
+  });
+</script>

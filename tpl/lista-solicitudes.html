@@ -1,0 +1,50 @@
+<div class="alert-light" role="alert">	
+	<div class="row" id='amigos-@@@ID-AMIGO'>
+		<div class="col-md-12">
+			
+				<img src="profile/thumbs/tb-@@@imagen" class="rounded-circle"> @@@AMIGO <STRONG><FONT color='@@@color'>@@@ESTADO</FONT></STRONG>	@@@BUTTON
+			
+		</div>	
+	</div>	
+</div>
+<hr>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+	
+		var remove = $('#remueve-amistad-@@@ID-AMIGO')
+
+		remove.click(function(event) {
+
+			var id_amigo = @@@ID-AMIGO
+			var id_user  = @@@ID-USER
+
+			var data = {'id':'elimina-amistad','id-user':id_user,'id_amigo':id_amigo}
+
+			var confirma = confirm('Está seguro que desea eliminar esta amistad ??')
+
+			if( !confirma )
+				return false;
+			else{
+
+				$.ajax({
+                type: "POST",
+                url: "response.php",
+                data: data,
+            
+                success: function( response ) {
+                  console.log(response);
+
+                $("#lista-amigos").html(response);
+                 
+                },
+              
+                error: function( response ) {
+                console.log(response);
+                window.location.reload(true);
+              }
+            });	
+			}
+		});
+	});
+</script>	

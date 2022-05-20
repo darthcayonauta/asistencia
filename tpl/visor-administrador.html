@@ -1,0 +1,68 @@
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/adapters/jquery.js"></script>
+<br>
+<div class="some multiverso2">
+
+###formulario-obs###
+
+<br>
+<br>
+<div id="respuesta">
+  ###lista-observaciones###
+</div>
+</div>
+<script>
+
+  $("#observacion").ckeditor();
+
+  $("#send").on("click",function(){
+
+    for ( instance in CKEDITOR.instances ) {
+           CKEDITOR.instances[instance].updateElement();
+       }
+
+      var codigo            = "###codigo###";
+      var email             = "###email###";
+      var observacion       = $("#observacion").val();
+      var estado_rendicion  = $("#estado_rendicion").val();
+
+      var formData          = new FormData($(".formulario")[0]);
+
+
+      if( observacion == '' || estado_rendicion=='' )
+      { alert( "Debe asignar un estado y una observacion" );return false; }
+      else{
+
+
+
+        $.ajax({
+                  type: "POST",
+                  url: "response.php",
+                  data: formData,
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  beforeSend:cargaImagen,
+
+                  success: function( response ) {
+
+                  $("#respuesta").html(response);
+
+                  },
+
+                  error: function( response ) {
+
+                  window.location.reload(true);
+              }
+          });
+      }
+  });
+
+  function cargaImagen()
+  {
+      var x=$("#respuesta");
+//       x.html('<div class="spinner-grow" role="status"><span class="sr-only">Loading...</span></div>');
+          x.html('<center><div class="container"><div class="row"><div class="col-md-12"><img src="gfx/cargando.gif" class="img-fluid"></div></div></div><center>');
+
+  }
+</script>
