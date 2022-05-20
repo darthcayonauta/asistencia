@@ -1,6 +1,6 @@
 <?php
 /**
- * @author ing Claudio Guzmán Herrera
+ * @author ing Claudio Guzmán Herrera x
  * @version 1.0
  */
 class AsistenciaAdmin
