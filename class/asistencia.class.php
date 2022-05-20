@@ -222,7 +222,7 @@ class Asistencia
     
                     $btn = "<button class='btn btn-block btn-info' 
                                     id = 'send-data-{$i}'>
-                                    <i class='fas fa-angle-double-right'></i> Ingresar
+                                    <i class='fas fa-angle-double-right'></i> INGRESO
                             </button>";
                 }else{
 
@@ -243,7 +243,7 @@ class Asistencia
 
                         $btn = "<button class='btn btn-block btn-secondary' 
                                         id = 'update-data-{$i}'>
-                                        <i class='fas fa-angle-double-right'></i> Ingresar
+                                        <i class='fas fa-angle-double-right'></i> SALIDA
                                 </button>";
                     }else {
                         $btn = null;
