@@ -7,8 +7,7 @@
 	include("class/codifica.class.php");
 	include("class/menu.class.php");
 	include("class/principal.class.php");
-	include("class/select.class.php");
-	include("class/myIp.class.php");
+	include("class/select.class.php");	
 	include("class/seguridad.class.php");
 	include("class/utilesmodulo.class.php");
 
