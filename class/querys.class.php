@@ -750,6 +750,33 @@ public function actualizaRendicion( $codigo         = null,
 		 		else 	return false;
 	}
 
+	public function listaAccesos()
+	{
+		$ssql = "SELECT 
+					accesos.id,
+					accesos.fecha,
+					accesos.ip,
+					accesos.sesion,
+					accesos.id_usuario,
+					user.apaterno,
+					user.amaterno,
+					user.nombres
+				FROM 
+				accesos
+				INNER JOIN user ON (accesos.id_usuario = user.id)
+				ORDER BY accesos.fecha DESC
+				";
+
+		$arr['sql'] 	= $ssql;
+		$arr['process'] = $this->sql->select( $ssql );
+		$arr['total-recs'] = count( $arr['process'] );
+
+		return $arr;
+	}
+
+
+
+
 public function listaUsuarios( $email = null , 
 							  $clave=null, 
 							  $is_admin = null, 

@@ -49,6 +49,7 @@ class ContentPage
 	{
 		switch ($this->id)
 		{
+			case 'accesos':
 			case 'lista-usuarios':
 			case 'crear-usuario':
 			case 'cambia-password':			
@@ -107,6 +108,11 @@ class ContentPage
     private function importaModulos()
     {
         switch ($this->id) {
+
+			case 'accesos':
+				# code...
+				return $this::generalCall( 'accesos.class.php', 'Accesos', $this->id );
+				break;
 
 			case 'lista-usuarios':
 			case 'crear-usuario':

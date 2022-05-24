@@ -1,10 +1,11 @@
 <?php
   //print_r( $_POST );
 
-  include("class/mysqldb.class.php");
+  	include("class/mysqldb.class.php");
 	include("class/querys.class.php");
 	include("class/template.class.php");
 	include("class/codifica.class.php");
+	include("class/myIp.class.php");
 	include("class/menu.class.php");
 	include("class/principal.class.php");
 	include("class/select.class.php");	
@@ -103,11 +104,11 @@
 
 		//ingresa acceso
 
-		//$ip 		= new MyIp();
+		$ip 		= new MyIp();
 		$obQuery 	= new querys();
 
-		//if( $obQuery->ingresaAccesos( $_SESSION['yo'], session_id(), $ip->getCode() ) )
-		//{ $ok = true;  }else{ $ok = true; }
+		if( $obQuery->ingresaAccesos( $_SESSION['yo'], session_id(), $ip->getCode() ) )
+		{ $ok = true;  }else{ $ok = true; }
 
 		if( $_SESSION['autenticado'] == 1 )
 			{
