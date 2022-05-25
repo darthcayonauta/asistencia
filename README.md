@@ -3,7 +3,7 @@ Sitio desarrollado por CGH/Darthcayonauta
 
 # ¿Qué hace?
 es un sistema básico de asistencia, compuesto de 2 módulos, uno de administrador y otro de usuarios.
-Programado orientado a MVC con POO. <br/>
+Programado y orientado a MVC con POO. <br/>
 Se le aplicó un Service Worker para que trabaje como PWA en móviles.
 
 
