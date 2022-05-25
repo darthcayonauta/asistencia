@@ -27,6 +27,6 @@ $conf['base']['dbuser']     = 'username';<br/>
 $conf['base']['dbpass']     = 'password';
 
 # Nota
-* No subir el folder 'db' a producción, por razones obvias y menos si se cuenta con datos reales. El folder sólo esta para producción
+* No subir el folder 'db' a producción, por razones obvias y menos si se cuenta con datos reales. El folder sólo esta para Desarrollo
 * el portal corre bien en sitios creados en Linux tales como Debian, Ubuntu, Mint, incluso Centos, no así en plataformas basadas en Wamp o Xampp
 
