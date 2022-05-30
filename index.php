@@ -6,6 +6,7 @@
   include( "class/index.class.php" );
   include("config.php");
 
+  #my index
   $ob_index = new Index();
   echo $ob_index->getCode();
 
